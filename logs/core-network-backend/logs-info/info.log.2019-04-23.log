@@ -1,0 +1,123 @@
+2019-04-23 00:23:35.727 [main] INFO  com.zhupeng.baseframe.WebApplication - 启动开始……
+2019-04-23 00:23:36.071 [restartedMain] INFO  com.zhupeng.baseframe.WebApplication - 启动开始……
+2019-04-23 00:23:36.808 [restartedMain] INFO  com.zhupeng.baseframe.WebApplication - Starting WebApplication on SD-20181223DEXT with PID 7144 (D:\workspace\zhupeng\baseframe2.0\target\classes started by Administrator in D:\workspace\zhupeng\baseframe2.0)
+2019-04-23 00:23:36.809 [restartedMain] INFO  com.zhupeng.baseframe.WebApplication - No active profile set, falling back to default profiles: default
+2019-04-23 00:23:37.671 [background-preinit] INFO  org.hibernate.validator.internal.util.Version - HV000001: Hibernate Validator 5.3.5.Final
+2019-04-23 00:23:37.823 [restartedMain] INFO  o.s.b.c.e.AnnotationConfigEmbeddedWebApplicationContext - Refreshing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@46c1493b: startup date [Tue Apr 23 00:23:37 CST 2019]; root of context hierarchy
+2019-04-23 00:23:40.126 [restartedMain] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode!
+2019-04-23 00:23:41.049 [restartedMain] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$3ea043c5] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-04-23 00:23:42.722 [restartedMain] INFO  o.s.b.c.e.tomcat.TomcatEmbeddedServletContainer - Tomcat initialized with port(s): 9999 (http)
+2019-04-23 00:23:42.777 [restartedMain] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2019-04-23 00:23:42.779 [restartedMain] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet Engine: Apache Tomcat/8.5.16
+2019-04-23 00:23:43.096 [localhost-startStop-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/baseframe] - Initializing Spring embedded WebApplicationContext
+2019-04-23 00:23:43.097 [localhost-startStop-1] INFO  org.springframework.web.context.ContextLoader - Root WebApplicationContext: initialization completed in 5274 ms
+2019-04-23 00:23:43.394 [localhost-startStop-1] INFO  o.s.boot.web.servlet.ServletRegistrationBean - Mapping servlet: 'dispatcherServlet' to [/]
+2019-04-23 00:23:43.402 [localhost-startStop-1] INFO  o.s.boot.web.servlet.FilterRegistrationBean - Mapping filter: 'characterEncodingFilter' to: [/*]
+2019-04-23 00:23:43.403 [localhost-startStop-1] INFO  o.s.boot.web.servlet.FilterRegistrationBean - Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2019-04-23 00:23:43.403 [localhost-startStop-1] INFO  o.s.boot.web.servlet.FilterRegistrationBean - Mapping filter: 'httpPutFormContentFilter' to: [/*]
+2019-04-23 00:23:43.404 [localhost-startStop-1] INFO  o.s.boot.web.servlet.FilterRegistrationBean - Mapping filter: 'requestContextFilter' to: [/*]
+2019-04-23 00:23:44.399 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/userController/add],methods=[GET]}" onto public java.lang.String com.zhupeng.baseframe.controller.UserController.addUser()
+2019-04-23 00:23:44.406 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/swagger-resources/configuration/ui]}" onto public org.springframework.http.ResponseEntity<springfox.documentation.swagger.web.UiConfiguration> springfox.documentation.swagger.web.ApiResourceController.uiConfiguration()
+2019-04-23 00:23:44.408 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/swagger-resources]}" onto public org.springframework.http.ResponseEntity<java.util.List<springfox.documentation.swagger.web.SwaggerResource>> springfox.documentation.swagger.web.ApiResourceController.swaggerResources()
+2019-04-23 00:23:44.409 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/swagger-resources/configuration/security]}" onto public org.springframework.http.ResponseEntity<springfox.documentation.swagger.web.SecurityConfiguration> springfox.documentation.swagger.web.ApiResourceController.securityConfiguration()
+2019-04-23 00:23:44.416 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+2019-04-23 00:23:44.417 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2019-04-23 00:23:44.730 [restartedMain] INFO  s.d.s.w.PropertySourcedRequestMappingHandlerMapping - Mapped URL path [/v2/api-docs] onto method [public org.springframework.http.ResponseEntity<springfox.documentation.spring.web.json.Json> springfox.documentation.swagger2.web.Swagger2Controller.getDocumentation(java.lang.String,javax.servlet.http.HttpServletRequest)]
+2019-04-23 00:23:45.184 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerAdapter - Looking for @ControllerAdvice: org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@46c1493b: startup date [Tue Apr 23 00:23:37 CST 2019]; root of context hierarchy
+2019-04-23 00:23:45.302 [restartedMain] INFO  o.s.web.servlet.handler.SimpleUrlHandlerMapping - Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2019-04-23 00:23:45.302 [restartedMain] INFO  o.s.web.servlet.handler.SimpleUrlHandlerMapping - Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2019-04-23 00:23:45.382 [restartedMain] INFO  o.s.web.servlet.handler.SimpleUrlHandlerMapping - Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2019-04-23 00:23:47.501 [restartedMain] INFO  o.s.b.d.autoconfigure.OptionalLiveReloadServer - LiveReload server is running on port 35729
+2019-04-23 00:23:47.841 [restartedMain] INFO  o.s.jmx.export.annotation.AnnotationMBeanExporter - Registering beans for JMX exposure on startup
+2019-04-23 00:23:47.847 [restartedMain] INFO  o.s.jmx.export.annotation.AnnotationMBeanExporter - Bean with name 'dataSource' has been autodetected for JMX exposure
+2019-04-23 00:23:47.859 [restartedMain] INFO  o.s.jmx.export.annotation.AnnotationMBeanExporter - Located MBean 'dataSource': registering with JMX server as MBean [com.alibaba.druid.pool:name=dataSource,type=DruidDataSource]
+2019-04-23 00:23:47.866 [restartedMain] INFO  o.s.context.support.DefaultLifecycleProcessor - Starting beans in phase 2147483647
+2019-04-23 00:23:47.867 [restartedMain] INFO  s.d.s.web.plugins.DocumentationPluginsBootstrapper - Context refreshed
+2019-04-23 00:23:47.991 [restartedMain] INFO  s.d.s.web.plugins.DocumentationPluginsBootstrapper - Found 1 custom documentation plugin(s)
+2019-04-23 00:23:48.050 [restartedMain] INFO  s.d.spring.web.scanners.ApiListingReferenceScanner - Scanning for api listing references
+2019-04-23 00:23:48.315 [restartedMain] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-9999"]
+2019-04-23 00:23:48.339 [restartedMain] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-9999"]
+2019-04-23 00:23:48.365 [restartedMain] INFO  org.apache.tomcat.util.net.NioSelectorPool - Using a shared selector for servlet write/read
+2019-04-23 00:23:48.407 [restartedMain] INFO  o.s.b.c.e.tomcat.TomcatEmbeddedServletContainer - Tomcat started on port(s): 9999 (http)
+2019-04-23 00:23:48.419 [restartedMain] INFO  com.zhupeng.baseframe.WebApplication - Started WebApplication in 12.329 seconds (JVM running for 16.644)
+2019-04-23 00:23:48.420 [restartedMain] INFO  com.zhupeng.baseframe.WebApplication - 启动完成！
+2019-04-23 00:24:46.143 [http-nio-9999-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/baseframe] - Initializing Spring FrameworkServlet 'dispatcherServlet'
+2019-04-23 00:24:46.143 [http-nio-9999-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - FrameworkServlet 'dispatcherServlet': initialization started
+2019-04-23 00:24:46.235 [http-nio-9999-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - FrameworkServlet 'dispatcherServlet': initialization completed in 91 ms
+2019-04-23 00:24:46.343 [http-nio-9999-exec-1] INFO  com.zhupeng.baseframe.controller.UserController - 添加用户
+2019-04-23 00:25:15.961 [Thread-36] INFO  o.s.b.c.e.AnnotationConfigEmbeddedWebApplicationContext - Closing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@46c1493b: startup date [Tue Apr 23 00:23:37 CST 2019]; root of context hierarchy
+2019-04-23 00:25:15.961 [Thread-36] INFO  o.s.context.support.DefaultLifecycleProcessor - Stopping beans in phase 2147483647
+2019-04-23 00:25:15.961 [Thread-36] INFO  o.s.jmx.export.annotation.AnnotationMBeanExporter - Unregistering JMX-exposed beans on shutdown
+2019-04-23 00:25:15.961 [Thread-36] INFO  o.s.jmx.export.annotation.AnnotationMBeanExporter - Unregistering JMX-exposed beans
+2019-04-23 00:25:31.509 [main] INFO  com.zhupeng.baseframe.WebApplication - 启动开始……
+2019-04-23 00:25:31.951 [restartedMain] INFO  com.zhupeng.baseframe.WebApplication - 启动开始……
+2019-04-23 00:25:32.709 [restartedMain] INFO  com.zhupeng.baseframe.WebApplication - Starting WebApplication on SD-20181223DEXT with PID 940 (D:\workspace\zhupeng\baseframe2.0\target\classes started by Administrator in D:\workspace\zhupeng\baseframe2.0)
+2019-04-23 00:25:32.709 [restartedMain] INFO  com.zhupeng.baseframe.WebApplication - No active profile set, falling back to default profiles: default
+2019-04-23 00:25:33.052 [background-preinit] INFO  org.hibernate.validator.internal.util.Version - HV000001: Hibernate Validator 5.3.5.Final
+2019-04-23 00:25:33.144 [restartedMain] INFO  o.s.b.c.e.AnnotationConfigEmbeddedWebApplicationContext - Refreshing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@2e8eb230: startup date [Tue Apr 23 00:25:33 CST 2019]; root of context hierarchy
+2019-04-23 00:25:35.343 [restartedMain] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode!
+2019-04-23 00:25:36.228 [restartedMain] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$434c9b35] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-04-23 00:25:36.911 [restartedMain] INFO  o.s.b.c.e.tomcat.TomcatEmbeddedServletContainer - Tomcat initialized with port(s): 9999 (http)
+2019-04-23 00:25:36.926 [restartedMain] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2019-04-23 00:25:36.926 [restartedMain] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet Engine: Apache Tomcat/8.5.16
+2019-04-23 00:25:37.131 [localhost-startStop-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/baseframe] - Initializing Spring embedded WebApplicationContext
+2019-04-23 00:25:37.131 [localhost-startStop-1] INFO  org.springframework.web.context.ContextLoader - Root WebApplicationContext: initialization completed in 3987 ms
+2019-04-23 00:25:37.464 [localhost-startStop-1] INFO  o.s.boot.web.servlet.ServletRegistrationBean - Mapping servlet: 'dispatcherServlet' to [/]
+2019-04-23 00:25:37.480 [localhost-startStop-1] INFO  o.s.boot.web.servlet.FilterRegistrationBean - Mapping filter: 'characterEncodingFilter' to: [/*]
+2019-04-23 00:25:37.480 [localhost-startStop-1] INFO  o.s.boot.web.servlet.FilterRegistrationBean - Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2019-04-23 00:25:37.480 [localhost-startStop-1] INFO  o.s.boot.web.servlet.FilterRegistrationBean - Mapping filter: 'httpPutFormContentFilter' to: [/*]
+2019-04-23 00:25:37.480 [localhost-startStop-1] INFO  o.s.boot.web.servlet.FilterRegistrationBean - Mapping filter: 'requestContextFilter' to: [/*]
+2019-04-23 00:25:37.480 [localhost-startStop-1] INFO  o.s.boot.web.servlet.FilterRegistrationBean - Mapping filter: 'com.zhupeng.baseframe.aop.BaseControllerFilter' to: [/*]
+2019-04-23 00:25:38.356 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/userController/add],methods=[GET]}" onto public java.lang.String com.zhupeng.baseframe.controller.UserController.addUser()
+2019-04-23 00:25:38.356 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/swagger-resources/configuration/ui]}" onto public org.springframework.http.ResponseEntity<springfox.documentation.swagger.web.UiConfiguration> springfox.documentation.swagger.web.ApiResourceController.uiConfiguration()
+2019-04-23 00:25:38.356 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/swagger-resources]}" onto public org.springframework.http.ResponseEntity<java.util.List<springfox.documentation.swagger.web.SwaggerResource>> springfox.documentation.swagger.web.ApiResourceController.swaggerResources()
+2019-04-23 00:25:38.372 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/swagger-resources/configuration/security]}" onto public org.springframework.http.ResponseEntity<springfox.documentation.swagger.web.SecurityConfiguration> springfox.documentation.swagger.web.ApiResourceController.securityConfiguration()
+2019-04-23 00:25:38.372 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+2019-04-23 00:25:38.372 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2019-04-23 00:25:38.668 [restartedMain] INFO  s.d.s.w.PropertySourcedRequestMappingHandlerMapping - Mapped URL path [/v2/api-docs] onto method [public org.springframework.http.ResponseEntity<springfox.documentation.spring.web.json.Json> springfox.documentation.swagger2.web.Swagger2Controller.getDocumentation(java.lang.String,javax.servlet.http.HttpServletRequest)]
+2019-04-23 00:25:39.090 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerAdapter - Looking for @ControllerAdvice: org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@2e8eb230: startup date [Tue Apr 23 00:25:33 CST 2019]; root of context hierarchy
+2019-04-23 00:25:39.201 [restartedMain] INFO  o.s.web.servlet.handler.SimpleUrlHandlerMapping - Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2019-04-23 00:25:39.201 [restartedMain] INFO  o.s.web.servlet.handler.SimpleUrlHandlerMapping - Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2019-04-23 00:25:39.279 [restartedMain] INFO  o.s.web.servlet.handler.SimpleUrlHandlerMapping - Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2019-04-23 00:25:41.021 [restartedMain] INFO  o.s.b.d.autoconfigure.OptionalLiveReloadServer - LiveReload server is running on port 35729
+2019-04-23 00:25:41.364 [restartedMain] INFO  o.s.jmx.export.annotation.AnnotationMBeanExporter - Registering beans for JMX exposure on startup
+2019-04-23 00:25:41.364 [restartedMain] INFO  o.s.jmx.export.annotation.AnnotationMBeanExporter - Bean with name 'dataSource' has been autodetected for JMX exposure
+2019-04-23 00:25:41.379 [restartedMain] INFO  o.s.jmx.export.annotation.AnnotationMBeanExporter - Located MBean 'dataSource': registering with JMX server as MBean [com.alibaba.druid.pool:name=dataSource,type=DruidDataSource]
+2019-04-23 00:25:41.379 [restartedMain] INFO  o.s.context.support.DefaultLifecycleProcessor - Starting beans in phase 2147483647
+2019-04-23 00:25:41.379 [restartedMain] INFO  s.d.s.web.plugins.DocumentationPluginsBootstrapper - Context refreshed
+2019-04-23 00:25:41.411 [restartedMain] INFO  s.d.s.web.plugins.DocumentationPluginsBootstrapper - Found 1 custom documentation plugin(s)
+2019-04-23 00:25:41.473 [restartedMain] INFO  s.d.spring.web.scanners.ApiListingReferenceScanner - Scanning for api listing references
+2019-04-23 00:25:41.676 [restartedMain] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-9999"]
+2019-04-23 00:25:41.691 [restartedMain] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-9999"]
+2019-04-23 00:25:41.707 [restartedMain] INFO  org.apache.tomcat.util.net.NioSelectorPool - Using a shared selector for servlet write/read
+2019-04-23 00:25:41.738 [restartedMain] INFO  o.s.b.c.e.tomcat.TomcatEmbeddedServletContainer - Tomcat started on port(s): 9999 (http)
+2019-04-23 00:25:41.754 [restartedMain] INFO  com.zhupeng.baseframe.WebApplication - Started WebApplication in 9.787 seconds (JVM running for 13.031)
+2019-04-23 00:25:41.754 [restartedMain] INFO  com.zhupeng.baseframe.WebApplication - 启动完成！
+2019-04-23 00:25:46.188 [http-nio-9999-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/baseframe] - Initializing Spring FrameworkServlet 'dispatcherServlet'
+2019-04-23 00:25:46.188 [http-nio-9999-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - FrameworkServlet 'dispatcherServlet': initialization started
+2019-04-23 00:25:46.231 [http-nio-9999-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - FrameworkServlet 'dispatcherServlet': initialization completed in 42 ms
+2019-04-23 00:25:46.439 [http-nio-9999-exec-1] INFO  com.zhupeng.baseframe.aop.BaseControllerFilter - --接收到请求--/baseframe/userController/add
+--------------------request-------------------------
+ID:1
+RemoteAddr:0:0:0:0:0:0:0:1
+Address:http://localhost:9999/baseframe/userController/add
+Encoding:UTF-8
+HttpMethod:GET
+ContentType:null
+Headers:host=[localhost:9999], connection=[keep-alive], cache-control=[max-age=0], upgrade-insecure-requests=[1], user-agent=[Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.181 Safari/537.36], accept=[text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8], accept-encoding=[gzip, deflate, br], accept-language=[zh-CN,zh;q=0.9], 
+Payload-param:{}
+Payload-body:
+2019-04-23 00:25:46.461 [http-nio-9999-exec-1] INFO  com.zhupeng.baseframe.controller.UserController - 添加用户
+2019-04-23 00:25:46.480 [http-nio-9999-exec-1] INFO  com.zhupeng.baseframe.aop.BaseControllerFilter - --响应请求--
+--------------------response------------------------
+ID:1
+Response-Code:200
+Content-Type:text/html;charset=UTF-8
+Headers:
+Payload:添加用户
+----------------------------------------------------
+Total time:231ms
+2019-04-23 00:44:55.216 [Thread-31] INFO  o.s.b.c.e.AnnotationConfigEmbeddedWebApplicationContext - Closing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@2e8eb230: startup date [Tue Apr 23 00:25:33 CST 2019]; root of context hierarchy
+2019-04-23 00:44:55.221 [Thread-31] INFO  o.s.context.support.DefaultLifecycleProcessor - Stopping beans in phase 2147483647
+2019-04-23 00:44:55.225 [Thread-31] INFO  o.s.jmx.export.annotation.AnnotationMBeanExporter - Unregistering JMX-exposed beans on shutdown
+2019-04-23 00:44:55.225 [Thread-31] INFO  o.s.jmx.export.annotation.AnnotationMBeanExporter - Unregistering JMX-exposed beans
