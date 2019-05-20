@@ -111,6 +111,24 @@ public class BaseControllerFilter implements Filter{
 
     }
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     private void initApplicationContext() {
         ApplicationContext context = new ApplicationContext();
         CurrentApplicationContext.setApplicationContext(context);
