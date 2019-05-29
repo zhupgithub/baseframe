@@ -5,11 +5,11 @@ import org.springframework.core.NamedThreadLocal;
 
 /**
  * 当前应用数据
- * @author helecong
+ * @author zhupeng
  *
  */
 public class CurrentApplicationContext {
-    private static final ThreadLocal<ApplicationContext> CURRENT_APPLICATION_CONTEXT_THREAD_LOCAL = new NamedThreadLocal<ApplicationContext>("dev999-pay-rbpzh");
+    private static final ThreadLocal<ApplicationContext> CURRENT_APPLICATION_CONTEXT_THREAD_LOCAL = new NamedThreadLocal<ApplicationContext>("zhupeng");
 
     public static void setApplicationContext(ApplicationContext context){
         CURRENT_APPLICATION_CONTEXT_THREAD_LOCAL.set(context);

@@ -1,7 +1,7 @@
 package com.zhupeng.baseframe.aop;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.zhupeng.baseframe.common.enumcommon.ResponseStatus;
+import com.zhupeng.baseframe.common.ResponseStatus;
 import com.zhupeng.baseframe.entity.aop.ApplicationContext;
 import com.zhupeng.baseframe.entity.aop.CurrentApplicationContext;
 import com.zhupeng.baseframe.entity.aop.RequestWrapper;
@@ -36,7 +36,7 @@ public class BaseControllerFilter implements Filter{
     private static final String LINE = "----------------------------------------------------";
     private static final String REQUEST_LINE = "--------------------request-------------------------";
     private static final String RESPONSE_LINE = "--------------------response------------------------";
-    private ThreadLocal<Long> localId = new ThreadLocal<>();
+    private ThreadLocal<Long> localId = new ThreadLocal<Long>();
     private static long id = 1;
 
     @Override
@@ -110,32 +110,12 @@ public class BaseControllerFilter implements Filter{
         }
 
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     private void initApplicationContext() {
         ApplicationContext context = new ApplicationContext();
         CurrentApplicationContext.setApplicationContext(context);
     }
 
     private String printResponseLog(ResponseWrapper httpResponse) throws IOException {
-        // TODO Auto-generated method stub
         return this.printResponseLog(200, httpResponse.getContentType(), getAllHeader(httpResponse),
                 new String(httpResponse.getResponseData()));
     }
@@ -179,7 +159,6 @@ public class BaseControllerFilter implements Filter{
      * @throws UnsupportedEncodingException
      */
     private String printRequestLog(HttpServletRequest httpRequest) throws UnsupportedEncodingException, IOException {
-        // TODO Auto-generated method stub
         StringBuilder sb = new StringBuilder();
         sb.append(httpRequest.getRequestURI());
         sb.append("\n" + REQUEST_LINE);

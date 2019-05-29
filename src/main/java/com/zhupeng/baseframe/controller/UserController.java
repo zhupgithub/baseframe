@@ -1,5 +1,6 @@
 package com.zhupeng.baseframe.controller;
 
+import com.zhupeng.baseframe.annotation.DebuggingLogAnnotation;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -17,7 +18,7 @@ import lombok.extern.slf4j.Slf4j;
 @RequestMapping("userController")
 public class UserController {
 	
-	
+	@DebuggingLogAnnotation
 	@ApiOperation(value = "添加用户",notes = "添加用户" , httpMethod = "GET", produces = MediaType.APPLICATION_JSON_UTF8_VALUE , consumes= MediaType.APPLICATION_JSON_UTF8_VALUE)  
 	@ApiResponses(value = { @ApiResponse(code = 1, message = "操作成功"),@ApiResponse(code = 2, message = "服务器内部异常"),@ApiResponse(code = 3, message = "权限不足")})  
 	@RequestMapping(value = "/add",method = {RequestMethod.GET})

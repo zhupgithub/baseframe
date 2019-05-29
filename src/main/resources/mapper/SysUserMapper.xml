@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.zhupeng.baseframe.mapper.SysUserMapper">
+	<select id="queryObject" resultType="com.zhupeng.baseframe.entity.SysUser">
+		select 
+		  `user_id`,
+		  `username`,
+		  `email`,
+		  `mobile`,
+		  `status`,
+		  `create_user_id`,
+		  `create_time`,
+		  `user_number`,
+		  `merchant_code`,
+		  `channel_code`,
+		  `approve_level`
+		from sys_user where user_id = #{value}
+	</select>
+	<!-- 查询用户的所有权限 -->
+	<select id="queryAllPerms" resultType="string">
+		select m.perms from sys_user_role ur 
+			LEFT JOIN sys_role_menu rm on ur.role_id = rm.role_id 
+			LEFT JOIN sys_menu m on rm.menu_id = m.menu_id 
+		where ur.user_id = #{userId}
+	</select>
+	
+	<!-- 查询用户的所有菜单ID --> 
+	<select id="queryAllMenuId" resultType="long">
+		select distinct rm.menu_id from sys_user_role ur 
+			LEFT JOIN sys_role_menu rm on ur.role_id = rm.role_id 
+		where ur.user_id = #{userId}
+	</select>
+	
+	<select id="queryByUserName" resultType="com.zhupeng.baseframe.entity.SysUser">
+		select * from sys_user where username = #{username}
+	</select>
+	
+	<insert id="save" parameterType="com.zhupeng.baseframe.entity.SysUser" useGeneratedKeys="true" keyProperty="userId">
+		insert into sys_user
+		(
+			`user_id`, 
+			`username`, 
+			`password`, 
+			`email`, 
+			`mobile`, 
+			`status`, 
+			`create_user_id`,
+			`create_time`,
+			`user_number`,
+			`merchant_code`,
+			`channel_code`,
+		  	`approve_level`
+		)
+		values
+		(
+			#{userId}, 
+			#{username}, 
+			#{password}, 
+			#{email}, 
+			#{mobile}, 
+			#{status}, 
+			#{createUserId},
+			#{createTime},
+			#{userNumber},
+			#{merchantCode},
+			#{channelCode},
+		    #{approveLevel}
+		)
+	</insert>
+	 
+	<update id="update" parameterType="com.zhupeng.baseframe.entity.SysUser">
+		update sys_user 
+		<set> 
+			<if test="username != null">`username` = #{username}, </if>
+			<if test="password != null">`password` = #{password}, </if>
+			<if test="email != null">`email` = #{email}, </if>
+			<if test="mobile != null">`mobile` = #{mobile}, </if>
+			<if test="status != null">`status` = #{status}, </if>
+			<if test="merchantCode != null">`merchant_code` = #{merchantCode}, </if>
+			<if test="channelCode != null">`channel_code` = #{channelCode}, </if>
+			<if test="approveLevel != null">`approve_level` = #{approveLevel}, </if>
+		</set>
+		where user_id = #{userId} 
+		<if test="createUserId != null">
+			and `create_user_id` = #{createUserId} 
+		</if>
+	</update>
+	
+	<update id="updatePassword" parameterType="map">
+		update sys_user set `password` = #{newPassword} 
+			where user_id = #{userId} and password = #{password}
+	</update>
+	
+	<delete id="deleteBatch">
+		delete from sys_user where user_id in 
+		<foreach item="userId" collection="array" open="(" separator="," close=")">
+			#{userId}
+		</foreach>
+		;
+		delete from sys_user_role where user_id in 
+		<foreach item="userId" collection="array" open="(" separator="," close=")">
+			#{userId}
+		</foreach>
+	</delete>
+	
+	<!-- 查询最大的用户工号 -->
+	<select id="queryMaxUserNumber" resultType="string">
+		select max(user_number) from sys_user
+	</select>
+
+	<select id="getUserByNameAndPassword" resultType="com.zhupeng.baseframe.entity.SysUser">
+		select * from sys_user where username = #{username} and password = #{password}
+	</select>
+	<select id="queryByMobileNo" resultType="com.zhupeng.baseframe.entity.SysUser">
+		select * from sys_user where mobile =#{mobileNo} limit 1
+	</select>
+</mapper>

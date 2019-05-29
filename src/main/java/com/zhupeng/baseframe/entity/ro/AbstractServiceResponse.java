@@ -1,7 +1,7 @@
 package com.zhupeng.baseframe.entity.ro;
 
 
-import com.zhupeng.baseframe.common.enumcommon.ResponseStatus;
+import com.zhupeng.baseframe.common.ResponseStatus;
 import io.swagger.annotations.ApiModelProperty;
 
 /**

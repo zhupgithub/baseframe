@@ -1,0 +1,169 @@
+{
+  "hints": [],
+  "groups": [
+    {
+      "sourceType": "com.zhupeng.baseframe.config.RedisConfig",
+      "name": "spring.redis",
+      "sourceMethod": "getRedisConfig()",
+      "type": "redis.clients.jedis.JedisPoolConfig"
+    },
+    {
+      "sourceType": "com.zhupeng.baseframe.config.RedisConfig",
+      "name": "spring.redis",
+      "sourceMethod": "getConnectionFactory()",
+      "type": "org.springframework.data.redis.connection.jedis.JedisConnectionFactory"
+    }
+  ],
+  "properties": [
+    {
+      "sourceType": "redis.clients.jedis.JedisPoolConfig",
+      "name": "spring.redis.block-when-exhausted",
+      "type": "java.lang.Boolean"
+    },
+    {
+      "sourceType": "org.springframework.data.redis.connection.jedis.JedisConnectionFactory",
+      "name": "spring.redis.client-name",
+      "type": "java.lang.String"
+    },
+    {
+      "sourceType": "org.springframework.data.redis.connection.jedis.JedisConnectionFactory",
+      "name": "spring.redis.convert-pipeline-and-tx-results",
+      "type": "java.lang.Boolean"
+    },
+    {
+      "sourceType": "org.springframework.data.redis.connection.jedis.JedisConnectionFactory",
+      "name": "spring.redis.database",
+      "type": "java.lang.Integer"
+    },
+    {
+      "sourceType": "redis.clients.jedis.JedisPoolConfig",
+      "name": "spring.redis.eviction-policy-class-name",
+      "type": "java.lang.String"
+    },
+    {
+      "sourceType": "redis.clients.jedis.JedisPoolConfig",
+      "name": "spring.redis.fairness",
+      "type": "java.lang.Boolean"
+    },
+    {
+      "sourceType": "org.springframework.data.redis.connection.jedis.JedisConnectionFactory",
+      "name": "spring.redis.host-name",
+      "type": "java.lang.String"
+    },
+    {
+      "sourceType": "redis.clients.jedis.JedisPoolConfig",
+      "name": "spring.redis.jmx-enabled",
+      "type": "java.lang.Boolean"
+    },
+    {
+      "sourceType": "redis.clients.jedis.JedisPoolConfig",
+      "name": "spring.redis.jmx-name-base",
+      "type": "java.lang.String"
+    },
+    {
+      "sourceType": "redis.clients.jedis.JedisPoolConfig",
+      "name": "spring.redis.jmx-name-prefix",
+      "type": "java.lang.String"
+    },
+    {
+      "sourceType": "redis.clients.jedis.JedisPoolConfig",
+      "name": "spring.redis.lifo",
+      "type": "java.lang.Boolean"
+    },
+    {
+      "sourceType": "redis.clients.jedis.JedisPoolConfig",
+      "name": "spring.redis.max-idle",
+      "type": "java.lang.Integer"
+    },
+    {
+      "sourceType": "redis.clients.jedis.JedisPoolConfig",
+      "name": "spring.redis.max-total",
+      "type": "java.lang.Integer"
+    },
+    {
+      "sourceType": "redis.clients.jedis.JedisPoolConfig",
+      "name": "spring.redis.max-wait-millis",
+      "type": "java.lang.Long"
+    },
+    {
+      "sourceType": "redis.clients.jedis.JedisPoolConfig",
+      "name": "spring.redis.min-evictable-idle-time-millis",
+      "type": "java.lang.Long"
+    },
+    {
+      "sourceType": "redis.clients.jedis.JedisPoolConfig",
+      "name": "spring.redis.min-idle",
+      "type": "java.lang.Integer"
+    },
+    {
+      "sourceType": "redis.clients.jedis.JedisPoolConfig",
+      "name": "spring.redis.num-tests-per-eviction-run",
+      "type": "java.lang.Integer"
+    },
+    {
+      "sourceType": "org.springframework.data.redis.connection.jedis.JedisConnectionFactory",
+      "name": "spring.redis.password",
+      "type": "java.lang.String"
+    },
+    {
+      "sourceType": "org.springframework.data.redis.connection.jedis.JedisConnectionFactory",
+      "name": "spring.redis.pool-config",
+      "type": "redis.clients.jedis.JedisPoolConfig"
+    },
+    {
+      "sourceType": "org.springframework.data.redis.connection.jedis.JedisConnectionFactory",
+      "name": "spring.redis.port",
+      "type": "java.lang.Integer"
+    },
+    {
+      "sourceType": "org.springframework.data.redis.connection.jedis.JedisConnectionFactory",
+      "name": "spring.redis.shard-info",
+      "type": "redis.clients.jedis.JedisShardInfo"
+    },
+    {
+      "sourceType": "redis.clients.jedis.JedisPoolConfig",
+      "name": "spring.redis.soft-min-evictable-idle-time-millis",
+      "type": "java.lang.Long"
+    },
+    {
+      "sourceType": "redis.clients.jedis.JedisPoolConfig",
+      "name": "spring.redis.test-on-borrow",
+      "type": "java.lang.Boolean"
+    },
+    {
+      "sourceType": "redis.clients.jedis.JedisPoolConfig",
+      "name": "spring.redis.test-on-create",
+      "type": "java.lang.Boolean"
+    },
+    {
+      "sourceType": "redis.clients.jedis.JedisPoolConfig",
+      "name": "spring.redis.test-on-return",
+      "type": "java.lang.Boolean"
+    },
+    {
+      "sourceType": "redis.clients.jedis.JedisPoolConfig",
+      "name": "spring.redis.test-while-idle",
+      "type": "java.lang.Boolean"
+    },
+    {
+      "sourceType": "redis.clients.jedis.JedisPoolConfig",
+      "name": "spring.redis.time-between-eviction-runs-millis",
+      "type": "java.lang.Long"
+    },
+    {
+      "sourceType": "org.springframework.data.redis.connection.jedis.JedisConnectionFactory",
+      "name": "spring.redis.timeout",
+      "type": "java.lang.Integer"
+    },
+    {
+      "sourceType": "org.springframework.data.redis.connection.jedis.JedisConnectionFactory",
+      "name": "spring.redis.use-pool",
+      "type": "java.lang.Boolean"
+    },
+    {
+      "sourceType": "org.springframework.data.redis.connection.jedis.JedisConnectionFactory",
+      "name": "spring.redis.use-ssl",
+      "type": "java.lang.Boolean"
+    }
+  ]
+}

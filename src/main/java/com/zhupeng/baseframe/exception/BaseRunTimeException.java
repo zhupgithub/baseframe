@@ -1,6 +1,6 @@
 package com.zhupeng.baseframe.exception;
 
-import com.zhupeng.baseframe.common.enumcommon.ErrorCodeType;
+import com.zhupeng.baseframe.common.ErrorCodeType;
 
 /**
  * 所有自定义异常都需要继承这个异常类
@@ -44,17 +44,14 @@ public class BaseRunTimeException extends RuntimeException{
             this.errorCode = e1.getErrorCode();
             this.errorMsg = e1.getErrorMsg();
         }
-        // TODO Auto-generated constructor stub
     }
 
     public BaseRunTimeException(String message, Throwable cause) {
         super(message, cause);
-        // TODO Auto-generated constructor stub
     }
 
     public BaseRunTimeException(ErrorCodeType errorCodeType,Throwable cause) {
         super("ErrorCode:"+errorCodeType.getErrorCode()+",ErrorMsg:"+errorCodeType.getErrorMsg(),cause);
-        // TODO Auto-generated constructor stub
     }
 
     public String getErrorCode() {

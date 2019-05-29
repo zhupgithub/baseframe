@@ -15,11 +15,7 @@ import javax.servlet.http.HttpServletRequestWrapper;
  *
  * <b>类名称：</b>RequestWrapper<br/>
  * <b>类描述：</b>复制request中的bufferedReader中的值<br/>
- * <b>创建人：</b>helecong<br/>
- * <b>修改人：</b>helecong<br/>
- * <b>修改时间：</b>2018年4月10日 下午9:45:10<br/>
  * <b>修改备注：</b>参考：https://www.cnblogs.com/xincunyiren/p/7248034.html<br/>
- * @version 1.0.0<br/>
  *
  */
 public class RequestWrapper extends HttpServletRequestWrapper{
