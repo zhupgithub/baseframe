@@ -13,6 +13,8 @@ import java.io.Serializable;
 @Data
 public class ResponseResult implements Serializable {
 
+    public final static int SYSTEM_EXCEPTION = 500;  //系统异常
+    public final static int SUCCESS = 200;  //访问成功
     private int code; //响应码
 
     private String message; //响应提示语
@@ -35,6 +37,10 @@ public class ResponseResult implements Serializable {
 
     public static ResponseResult success(int code,String message){
         ResponseResult responseResult = new ResponseResult(code,message);
+        return responseResult;
+    }
+    public static ResponseResult success(int code,String message,Object data){
+        ResponseResult responseResult = new ResponseResult(code,message,data);
         return responseResult;
     }
 

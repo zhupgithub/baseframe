@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zhupeng.baseframe.mapper.PermissionMapper">
+  <resultMap id="BaseResultMap" type="com.zhupeng.baseframe.entity.db.Permission">
+    <result column="pid" jdbcType="INTEGER" property="pid" />
+    <result column="pname" jdbcType="VARCHAR" property="pname" />
+  </resultMap>
+  <sql id="perssionAttr">
+     p.pid , p.pname
+  </sql>
+  <insert id="insert" parameterType="com.zhupeng.baseframe.entity.db.Permission"
+          useGeneratedKeys="true" keyProperty="pid">
+    insert into permission (pid, pname)
+    values (#{pid,jdbcType=INTEGER}, #{pname,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.zhupeng.baseframe.entity.db.Permission"
+          useGeneratedKeys="true" keyProperty="pid">
+    insert into permission
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="pid != null">
+        pid,
+      </if>
+      <if test="pname != null">
+        pname,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="pid != null">
+        #{pid,jdbcType=INTEGER},
+      </if>
+      <if test="pname != null">
+        #{pname,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+
+  <select id="selectPermissionsByRid" parameterType="int" resultType="com.zhupeng.baseframe.entity.db.Permission">
+    select
+    <include refid="perssionAttr"/>
+      from permission p , role r , permission_role pr where p.pid = pr.pid and r.rid = pr.rid and r.rid = #{rid,jdbcType=INTEGER}
+  </select>
+</mapper>

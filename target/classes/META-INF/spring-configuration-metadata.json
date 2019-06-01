@@ -1,19 +1,6 @@
 {
   "hints": [],
-  "groups": [
-    {
-      "sourceType": "com.zhupeng.baseframe.config.RedisConfig",
-      "name": "spring.redis",
-      "sourceMethod": "getRedisConfig()",
-      "type": "redis.clients.jedis.JedisPoolConfig"
-    },
-    {
-      "sourceType": "com.zhupeng.baseframe.config.RedisConfig",
-      "name": "spring.redis",
-      "sourceMethod": "getConnectionFactory()",
-      "type": "org.springframework.data.redis.connection.jedis.JedisConnectionFactory"
-    }
-  ],
+  "groups": [],
   "properties": [
     {
       "sourceType": "redis.clients.jedis.JedisPoolConfig",

@@ -1,6 +1,6 @@
 package com.zhupeng.baseframe.utils;
 
-import com.zhupeng.baseframe.common.ErrorCodeType;
+import com.zhupeng.baseframe.common.CodeType;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.lang3.time.DateUtils;
 import org.slf4j.Logger;
@@ -386,8 +386,8 @@ public class DateUtil {
         try {
             date = sim.parse(dateStr);
         } catch (ParseException e) {
-            throw new RuntimeException(ErrorCodeType.TYPE_CONVERSION_ERROR.getErrorCode()+
-                    "=="+ErrorCodeType.TYPE_CONVERSION_ERROR.getErrorCode());
+            throw new RuntimeException(CodeType.TYPE_CONVERSION_ERROR.getCode()+
+                    "=="+ CodeType.TYPE_CONVERSION_ERROR.getCode());
         }
         return date;
     }
@@ -404,8 +404,8 @@ public class DateUtil {
         try {
             str = sim.format(date);
         }catch (Exception e){
-            throw new RuntimeException(ErrorCodeType.TYPE_CONVERSION_ERROR.getErrorCode()+
-                    "=="+ErrorCodeType.TYPE_CONVERSION_ERROR.getErrorCode());
+            throw new RuntimeException(CodeType.TYPE_CONVERSION_ERROR.getCode()+
+                    "=="+CodeType.TYPE_CONVERSION_ERROR.getCode());
         }
         return str;
     }

@@ -16,18 +16,17 @@
 	    window.onload=kickout();
 	
 	    function refreshCaptcha(){
-	        $("#captcha_img").attr("src","/user/Captcha.jpg?id=" + new Date() + Math.floor(Math.random()*24));
+	        $("#captcha_img").attr("src","/baseframe/userController/Captcha.jpg?id=" + new Date() + Math.floor(Math.random()*24));
 	    }
 	</script>
 </head>
 <body>
 <h1>欢迎登录</h1>
-<h1 th:if="${msg != null }" th:text="${msg}" style="color: red"></h1>
-<form action="/user/loginUser" method="post">
+<form action="/baseframe/userController/loginUser" method="post">
     用户名：<input type="text" name="username"/><br/>
     密码：<input type="password" name="password"/><br/>
     验证码：
-    <input type="text" name="captcha"/><img alt="验证码" src="/user/Captcha.jpg" title="点击更换" id="captcha_img"/>
+    <input type="text" name="captcha"/><img alt="验证码" src="/baseframe/userController/Captcha.jpg" title="点击更换" id="captcha_img"/>
     (看不清<a href="javascript:void(0)" onclick="refreshCaptcha()">换一张</a>)<br/>
     <input type="checkbox" name="rememberMe" />记住我<br/>
     <input type="submit" value="提交"/> <!-- <button><a href="/unlockAccount">解锁admin用户</a></button> -->

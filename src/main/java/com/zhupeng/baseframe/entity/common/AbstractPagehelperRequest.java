@@ -6,7 +6,7 @@ import io.swagger.annotations.ApiModelProperty;
 
 /**
  * 使用Pagehelper 的查询抽象类
- * @author helecong
+ * @author zhupeng
  *
  */
 @ApiModel(value="分页用参数实体类")

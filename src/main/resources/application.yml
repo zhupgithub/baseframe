@@ -71,7 +71,7 @@ logging:
   config: classpath:logback.xml
   file: INFO
   level:
-    com.azbz.destiny: debug
+    com.zhupeng.baseframe: debug
     io.swagger.models.parameters.AbstractSerializableParameter: error
   
 debug: true

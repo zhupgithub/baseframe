@@ -3,7 +3,7 @@ package com.zhupeng.baseframe.config;
 import java.io.*;
 
 /**
- * @author Beauxie
+ * @author zhupeng
  * @date Created on 2018/04/06
  */
 public class StreamTool {

@@ -1,6 +1,5 @@
 package com.zhupeng.test.mybatisGenerator.swagger;
 
-import com.zhupeng.baseframe.config.Constant;
 import com.zhupeng.baseframe.config.StreamTool;
 import io.github.robwin.markup.builder.MarkupLanguage;
 import io.github.robwin.swagger2markup.GroupBy;
@@ -13,12 +12,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.restdocs.AutoConfigureRestDocs;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.http.MediaType;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
-import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
-import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
-import springfox.documentation.staticdocs.SwaggerResultHandler;
 
 import java.io.InputStream;
 

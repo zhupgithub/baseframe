@@ -1,13 +1,15 @@
 package com.zhupeng.baseframe.aop;
 
 import com.alibaba.fastjson.JSON;
-import com.zhupeng.baseframe.entity.aop.ApplicationContext;
-import com.zhupeng.baseframe.entity.aop.CurrentApplicationContext;
 import com.zhupeng.baseframe.utils.JSONUtils;
 import lombok.extern.slf4j.Slf4j;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.ProceedingJoinPoint;
-import org.aspectj.lang.annotation.*;
+import org.aspectj.lang.annotation.AfterReturning;
+import org.aspectj.lang.annotation.Aspect;
+import org.aspectj.lang.annotation.Before;
+import org.aspectj.lang.annotation.Pointcut;
+import org.springframework.context.ApplicationContext;
 import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
 import org.springframework.web.context.request.RequestContextHolder;
@@ -17,6 +19,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.BufferedReader;
 import java.io.IOException;
+import java.io.InputStreamReader;
 import java.io.UnsupportedEncodingException;
 import java.util.Collection;
 import java.util.Date;
@@ -27,14 +30,14 @@ import java.util.Map;
 /**
  * 
  * ClassName: UserCheckAopAdviseDefind 
- * @Description: 判断用户登入是否有效
+ * @Description:  该注解用户前后端调试时使用，在需要调试的方法上面加入该注解，方便进行调试
  * @author zhupeng
  * @date 2019年1月15日
  */
 @Component
 @Aspect
 @Slf4j
-@Order(2)
+@Order(1)
 public class DebuggerAop {
 
 	private static final String LINE = "----------------------------------------------------";
@@ -57,38 +60,9 @@ public class DebuggerAop {
 	@AfterReturning(pointcut = "debuggerAop()" , returning = "retVal")
 	public void printResponse(JoinPoint joinPonit,Object retVal){
 		HttpServletResponse httpServletResponse = ((ServletRequestAttributes) RequestContextHolder.getRequestAttributes()).getResponse();
-		printResponseLog(httpServletResponse.getStatus(), httpServletResponse.getContentType(), getAllHeader(httpServletResponse),
-				JSON.toJSONString(retVal));
+		printResponseLog(httpServletResponse ,JSON.toJSONString(retVal));
 	}
 
-	//@Around("pointcut()")
-	public Object checkUser(ProceedingJoinPoint proceedingJoinPoint) throws Throwable{
-//		ResponseResult responseResult = new ResponseResult();
-//		String classType = proceedingJoinPoint.getTarget().getClass().getName();
-//        Class<?> clazz = Class.forName(classType);
-//        String clazzName = clazz.getName();
-//        String methodName = proceedingJoinPoint.getSignature().getName(); //获取方法名称
-//        Object[] args = proceedingJoinPoint.getArgs();//参数
-//          //获取参数名称和值
-//        Map<String,Object > nameAndArgs = ReflectUtils.getFieldsName(this.getClass(), clazzName, methodName,args);
-//        logger.info("调用{}方法，参数是：{}",methodName,nameAndArgs.toString());
-//
-//		HttpServletRequest request  = ((ServletRequestAttributes) RequestContextHolder.getRequestAttributes()).getRequest();
-//		logger.info("请求类型："+request.getContentType()+"   请求方式："+request.getMethod());
-//
-//		String phone = request.getParameter("phone");
-//
-////		phone = RedisUtil.getValueByKey(phone);
-////		if(phone == null){
-////			responseResult.setCode(999);
-////			responseResult.setMessage("亲，请先登入");
-////			return responseResult;
-////		}
-//        Object result =  proceedingJoinPoint.proceed();
-////        RedisUtil.setValueAndKey(phone, phone,10L,TimeUnit.MINUTES);
-//        return result;
-		return null;
-	}
 
 	/**
 	 * 输入请求日志
@@ -110,7 +84,7 @@ public class DebuggerAop {
 		sb = sb.append("\nHeaders:").append(getAllHeader(httpRequest));
 
 		Map map = httpRequest.getParameterMap();
-		BufferedReader bufferedReader = httpRequest.getReader();
+		BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(httpRequest.getInputStream()));;
 		String line;
 		StringBuilder sb1 = new StringBuilder();
 		while ((line = bufferedReader.readLine()) != null) {
@@ -135,13 +109,13 @@ public class DebuggerAop {
 	/**
 	 * 输出返回消息
 	 *
-	 * @param status
-	 * @param contentType
-	 * @param headers
+	 * @param httpServletResponse
 	 * @param returnStr
 	 */
-	private String printResponseLog(int status, String contentType, String headers, String returnStr) {
-		ApplicationContext applicationContext = CurrentApplicationContext.getApplicationContext();
+	private String printResponseLog(HttpServletResponse httpServletResponse, String returnStr) {
+		int status = httpServletResponse.getStatus();
+		String contentType = httpServletResponse.getContentType();
+		String headers = getAllHeader(httpServletResponse);
 		StringBuilder sb = new StringBuilder();
 		sb = sb.append("\n" + RESPONSE_LINE);
 		sb = sb.append("\nResponse-Code:").append(status);
@@ -153,10 +127,6 @@ public class DebuggerAop {
 			sb = sb.append("\nPayload:").append(returnStr);
 		}
 		sb = sb.append("\n" + LINE);
-		Date requestDate = applicationContext.getRequestDate();
-		Date responseDate = new Date();
-		long time = responseDate.getTime() - requestDate.getTime();
-		sb.append("\nTotal time:").append(time).append("ms");
 		log.info("--响应请求--" + sb.toString());
 		return sb.toString();
 	}

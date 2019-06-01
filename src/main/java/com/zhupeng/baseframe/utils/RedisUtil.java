@@ -4,6 +4,7 @@ import com.github.pagehelper.util.StringUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 import org.springframework.data.redis.core.RedisTemplate;
+import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.stereotype.Component;
 
 import java.util.concurrent.TimeUnit;
@@ -18,12 +19,13 @@ import java.util.concurrent.TimeUnit;
 @Component
 @Scope("singleton")
 public class RedisUtil {
-	
-    private static RedisTemplate<String,Object> redisTemplate;
+
+	@Autowired
+	private static StringRedisTemplate redisTemplate;
 
     //静态注入
 	@Autowired
-	public void setRedisTemplate(RedisTemplate<String, Object> redisTemplate) {
+	public void setRedisTemplate(StringRedisTemplate redisTemplate) {
 		RedisUtil.redisTemplate = redisTemplate;
 	}
 

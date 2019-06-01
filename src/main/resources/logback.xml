@@ -2,7 +2,7 @@
 	scanPeriod：设置监测配置文件是否有修改的时间间隔，如果没有给出时间单位，默认单位是毫秒。当scan为true时，此属性生效。默认的时间间隔为1分钟.
 	debug：当此属性设置为true时，将打印出logback内部日志信息，实时查看logback运行状态。默认值为false。 -->
 <configuration scan="true" scanPeriod="60 second" debug="false">
-    <property name="APP_Name" value="core-network-backend"/>
+    <property name="APP_Name" value="baseframe"/>
     <property name="LOG_HOME" value="."/>
     <contextName>${APP_Name}</contextName>
 
@@ -90,14 +90,10 @@
         如果未设置此属性，那么当前logger将会继承上级的级别。
         additivity：是否向上级logger传递打印信息。默认是true。
      -->
-    <logger name="com.azbz">
+    <logger name="com.zhupeng.baseframe">
         <appender-ref ref="INFO"/>
         <appender-ref ref="ERROR"/>
     </logger>
-    <!--  <logger name="com.ponshine" >
-         <level value="ERROR" />
-         <appender-ref ref="ERROR" />
-     </logger> -->
     <!--  level：用来设置打印级别，大小写无关：
         TRACE, DEBUG, INFO, WARN, ERROR, ALL 和 OFF，不能设置为INHERITED或者同义词NULL。默认是DEBUG。
      -->
