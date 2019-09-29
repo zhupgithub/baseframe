@@ -57,7 +57,7 @@ spring:
 # mybatis 相关配置
 mybatis:
   mapper-locations: classpath:mapper/*.xml
-  type-aliases-package: com.zhupeng.baseframe.dao.*
+  type-aliases-package: com.zhupeng.baseframe.entity.db.*
 
 # pageHelper分页插件
 pagehelper:

@@ -5,6 +5,8 @@ import java.io.IOException;
 import java.util.List;
 import java.util.Map;
 
+import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.JSONObject;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.JavaType;
@@ -97,4 +99,17 @@ public class JSONUtils {
         return null;
     }
 
+/**
+     * map 转成bean
+     * @param tClass
+     * @param map
+     * @param <T>
+     * @return
+     */
+    public static <T> T mapToBean(Class<T> tClass , Map<String , Object> map){
+        String json = JSONObject.toJSONString(map);
+
+        System.out.println("解析前的json字符串：" + json);
+        return JSON.parseObject(json, tClass);
+    }
 }
