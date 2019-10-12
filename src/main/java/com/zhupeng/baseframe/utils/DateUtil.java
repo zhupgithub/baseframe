@@ -211,7 +211,6 @@ public class DateUtil {
      * 得到传入时间后几天的开始时间
      * </p>
      *
-     * @author ztjie
      * @date 2013-12-5 下午9:03:54
      * @return
      * @see
@@ -230,7 +229,6 @@ public class DateUtil {
      * 得到传入时间后几天的结束时间
      * </p>
      *
-     * @author ztjie
      * @date 2013-12-5 下午9:04:18
      * @return
      * @see
@@ -262,7 +260,6 @@ public class DateUtil {
      * 得到几年前的当前时间
      * </p>
      *
-     * @author Think
      * @date 2013-12-7 上午10:16:13
      * @param date
      * @param before
@@ -277,7 +274,6 @@ public class DateUtil {
     }
 
     /**
-     * @author yindezhou
      * @date 2014-9-23 下午4:59:35
      * @param time
      *            23:00:00格式的时间或者 23:00格式
