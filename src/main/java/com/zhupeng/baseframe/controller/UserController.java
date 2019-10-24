@@ -17,21 +17,24 @@ import org.apache.shiro.authz.annotation.RequiresRoles;
 import org.apache.shiro.subject.Subject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiResponse;
 import io.swagger.annotations.ApiResponses;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.web.multipart.MultipartFile;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
+import java.io.File;
+import java.lang.annotation.Annotation;
+import java.lang.reflect.Field;
+import java.lang.reflect.Method;
+import java.util.HashMap;
 
 @Slf4j
 @Api(value = "/UserController" , tags = "用户相关接口" , description = "用户相关接口")
@@ -47,6 +50,7 @@ public class UserController {
 	@ApiResponses(value = { @ApiResponse(code = 1, message = "操作成功"),@ApiResponse(code = 2, message = "服务器内部异常"),@ApiResponse(code = 3, message = "权限不足")})  
 	@RequestMapping(value = "/test",method = {RequestMethod.GET})
 	public String addUser(){
+
 		log.info("添加用户");
 		User user = new User();
 		user.setUsername("hh");
@@ -118,5 +122,70 @@ public class UserController {
 	public void delete(){
 		log.info("++++++++++++++++++++++用户删除权限++++++++++++++++++++++++++++");
 		//roleService.selectRolesByUid(user.getUid() == null ? 1 : user.getUid());
+	}
+
+	@DebuggingLogAnnotation
+	@RequestMapping("/zhu/{deviceId2}/{personId}/test")
+	public String test(@PathVariable("deviceId2") int deviceId , @PathVariable int personId , String name , HttpServletRequest request){
+		System.out.println(request);
+		request.getParameterValues("deviceId");
+		request.getAttribute("pathVariables");
+		request.getParameterMap().get("name");
+
+		//获得restful接口中的参数，/zhu/{deviceId2}/{personId}/test
+		Object deviceO = ((HashMap<String,Object>)request.getAttribute("org.springframework.web.servlet.View.pathVariables")).get("deviceId");
+        Object personO = ((HashMap<String,Object>)request.getAttribute("org.springframework.web.servlet.View.pathVariables")).get("personId");
+
+		int deviceIdT =  Integer.parseInt(deviceO.toString());
+		int personIdT =  Integer.parseInt(personO.toString());
+		return "deviceId =" + deviceId +", personId= " + personId + ",name =" + name + ", deviceIdT = " + deviceIdT + "personIdT =" + personIdT;
+	}
+	//org.springframework.web.servlet.View.pathVariables -> {HashMap@11178}  size = 2
+
+	/**
+	 * 添加人脸
+	 */
+	@DebuggingLogAnnotation
+	@PostMapping("/device/{deviceId}/test")
+	public void addFace(@PathVariable Long deviceId , @RequestParam("file") MultipartFile file , Long personId , HttpServletRequest request) {
+		System.out.println("hh" + request);
+	}
+
+
+	public static void main(String[] args) throws NoSuchFieldException, NoSuchMethodException {
+		Class<UserController> clazz = UserController.class;
+
+		//判断类上是否有相应注解
+		Boolean isRequestMappingExist = clazz.isAnnotationPresent(RequestMapping.class);
+		if(isRequestMappingExist){
+			//获取注解定义在类上的注解
+			RequestMapping requestMapping =  clazz.getAnnotation(RequestMapping.class);
+			//获取注解中的属性值
+			System.out.println(requestMapping.value() + " " + requestMapping.produces());
+		}
+
+		Field userService = clazz.getDeclaredField("userService");
+		userService.setAccessible(true);
+		Boolean isAutowiredExist = userService.isAnnotationPresent(Autowired.class);
+		if(isAutowiredExist){
+			//获取定义在属性上的注解
+			Autowired autowired	= userService.getAnnotation(Autowired.class);
+			//获取注解中的属性值
+			System.out.println(autowired.required());
+		}
+
+
+		Method [] methods = clazz.getMethods();
+		//获取方法上的注解
+		Method method = clazz.getDeclaredMethod("loginUser");
+		Boolean isRequestMappingMethod = method.isAnnotationPresent(RequestMapping.class);
+
+		if(isRequestMappingMethod){
+			RequestMapping requestMappingMethod = method.getAnnotation(RequestMapping.class);
+			//获取注解中的属性值
+			System.out.println(requestMappingMethod.value() + " " + requestMappingMethod.produces());
+		}
+
+
 	}
 }
