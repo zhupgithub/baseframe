@@ -13,6 +13,7 @@ import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.JavaType;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.zhupeng.baseframe.entity.co.user.LoginUserCo;
+import org.apache.commons.collections.CollectionUtils;
 import org.apache.commons.lang3.ArrayUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.json.JSONTokener;
@@ -120,8 +121,8 @@ public class JSONUtils {
      * 递归解析json字符串，将数组数据存入list集合中，将json对象存入map中
      * @param json 需要解析的json字符串
      */
-//    public static Object parseJson(String json) {
-//        if(StringUtils.isBlank(json)){
+//    public static Object parseJson(String json) throws org.json.JSONException {
+//        if (StringUtils.isBlank(json)) {
 //            return json;
 //        }
 //        Object typeObject = new JSONTokener(json).nextValue();
@@ -163,7 +164,6 @@ public class JSONUtils {
 //        }
 //        return result;
 //    }
-
     /**
      * map 转成bean
      * @param tClass
@@ -238,4 +238,56 @@ public class JSONUtils {
         return JSONObject.parse(buffer.toString());
     }
 
+
+    /**
+     解析json，获取json中的数据，
+     当json为{"key1":{"key11":"value11","key12":{"key121":[1,2,3]}}}时，keys为key1,key12,key121时，将获得[1,2,3]
+     当keys为key1 ， key11时，将获得value11
+     */
+    public static LinkedList<String> getValues(String json , LinkedList<String> keys) throws org.json.JSONException {
+        LinkedList<String> valueList = new LinkedList<String>();
+
+        if(StringUtils.isBlank(json)){
+            return null;
+        }
+        if(keys == null || keys.size() <= 0){
+            valueList.add(json);
+            return valueList;
+        }
+
+        Object typeObject = new JSONTokener(json).nextValue();
+        if (typeObject instanceof org.json.JSONArray){
+            JSONArray jsonArray = JSONArray.parseArray(json);
+
+            for (int i = 0; i < jsonArray.size(); i++) {
+                LinkedList<String> tempKeys = new LinkedList<>();
+                tempKeys.addAll(keys);
+
+                LinkedList<String> values = getValues(jsonArray.get(i).toString() , tempKeys);
+
+                if(CollectionUtils.isNotEmpty(values)){
+                    valueList.addAll(values);
+                }
+            }
+        }
+        if (typeObject instanceof org.json.JSONObject){
+            JSONObject jsonObject = JSONObject.parseObject(json);
+            Object value = jsonObject.get(keys.get(0));
+
+            keys.remove(0);
+
+            if(value == null ){
+                return null;
+            }
+            if(keys.size() <= 0){
+                valueList.add(value.toString());
+                return valueList;
+            }
+            LinkedList<String> values = getValues(JSONObject.toJSONString(value)  , keys);
+            if(CollectionUtils.isNotEmpty(values)){
+                valueList.addAll(values);
+            }
+        }
+        return  valueList;
+    }
 }

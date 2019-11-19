@@ -18,16 +18,16 @@ import java.security.cert.X509Certificate;
  * https的调用
  */
 @Slf4j
-public class MyHttpsClient extends DefaultHttpClient {
+public class HttpsClient extends DefaultHttpClient {
 
     private static volatile CloseableHttpClient httpsClient;
 
     static {
         try {
             if(httpsClient == null){
-                synchronized (MyHttpsClient.class){
+                synchronized (HttpsClient.class){
                     if (httpsClient == null){
-                        httpsClient = new MyHttpsClient();
+                        httpsClient = new HttpsClient();
                     }
                 }
             }
@@ -37,7 +37,7 @@ public class MyHttpsClient extends DefaultHttpClient {
         }
     }
 
-    private MyHttpsClient() throws Exception{
+    private HttpsClient() throws Exception{
         super();
         SSLContext ctx = SSLContext.getInstance("TLS");
         X509TrustManager tm = new X509TrustManager() {

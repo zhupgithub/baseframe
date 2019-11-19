@@ -12,6 +12,7 @@ import javax.crypto.spec.DESKeySpec;
 
 /**
  *  字符串转字节或字节转字符串时 一定要加上编码，否则可能出现乱码
+ *  https://segmentfault.com/a/1190000007286619
  */
 public class DES {
 
@@ -53,14 +54,16 @@ public class DES {
             // DES算法要求有一个可信任的随机数源
             SecureRandom sr = new SecureRandom();
             //为我们选择的DES算法生成一个KeyGenerator对象
-            KeyGenerator kg = KeyGenerator.getInstance ("DES" );
+            KeyGenerator kg = KeyGenerator.getInstance (DECRYPT_TYPE);
             kg.init (sr);
             //生成密钥
             Key key = kg.generateKey();
 
-            String password = String.valueOf(key.getEncoded());
-            System.out.println("密码：" + password);
+            //直接将byte数组转成字符串，存在乱码
+            String password = BytesToHex.arr2HexStr(key.getEncoded() ,true);
 
+            System.out.println("密码：" + password);
+            password = new String(Base64.getEncoder().encode(password.getBytes(CHARSET)),CHARSET);
             return password;
         } catch (Exception e) {
             e.printStackTrace();
@@ -76,6 +79,7 @@ public class DES {
      */
     public static String encrypt(String encryptionStr, String password) {
         try{
+            password = new String(Base64.getDecoder().decode(password.getBytes(CHARSET)));
             byte[] encryptionBytes = encryptionStr.getBytes(CHARSET);
 
             Cipher cipher = getCipher(password , Cipher.ENCRYPT_MODE);
@@ -97,6 +101,7 @@ public class DES {
      */
     public static String decrypt(String decryptionBase64Str, String password) {
         try {
+            password = new String(Base64.getDecoder().decode(password.getBytes(CHARSET)));
             byte[] decryptionbytes = Base64.getDecoder().decode(decryptionBase64Str.getBytes(CHARSET));
 
             Cipher cipher = getCipher(password , Cipher.DECRYPT_MODE);
@@ -118,6 +123,7 @@ public class DES {
      */
     public static void encryptFile(String file, String destFile , String password){
         try {
+            password = new String(Base64.getDecoder().decode(password.getBytes(CHARSET)));
             Cipher cipher = getCipher(password , Cipher.ENCRYPT_MODE);
 
             InputStream is = new FileInputStream(file);
@@ -146,6 +152,7 @@ public class DES {
      */
     public static void decryptFile(String file, String destFile , String password){
         try {
+            password = new String(Base64.getDecoder().decode(password.getBytes(CHARSET)));
             Cipher cipher = getCipher(password , Cipher.DECRYPT_MODE);
 
             InputStream is = new FileInputStream(file);

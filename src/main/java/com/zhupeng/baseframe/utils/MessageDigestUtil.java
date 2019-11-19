@@ -20,7 +20,7 @@ public class MessageDigestUtil {
     public static String encryptMD5(byte[] data) throws Exception {
         MessageDigest messageDigest = MessageDigest.getInstance("MD5");//MD5,MD2
         messageDigest.update(data);
-        return BytesToHex.fromBytesToHex(messageDigest.digest());
+        return BytesToHex.arr2HexStr(messageDigest.digest() , true);
     }
 
     /**
@@ -36,7 +36,7 @@ public class MessageDigestUtil {
                 read = dis.read(buffer, 0, 1024);
             }
             MessageDigest md = dis.getMessageDigest();
-            return BytesToHex.fromBytesToHex(md.digest());
+            return BytesToHex.arr2HexStr(md.digest() , true);
         } finally {
             dis.close();
             fis.close();
@@ -50,7 +50,7 @@ public class MessageDigestUtil {
     public static String encryptSHA(byte[] data) throws Exception {
         MessageDigest messageDigest = MessageDigest.getInstance("SHA");//SHA,SHA1,SHA-1,SHA-256,SHA-384,SHA-512
         messageDigest.update(data);
-        return BytesToHex.fromBytesToHex(messageDigest.digest());
+        return BytesToHex.arr2HexStr(messageDigest.digest() , true);
     }
 
     /**
@@ -68,7 +68,7 @@ public class MessageDigestUtil {
         SecretKey secretKey = new SecretKeySpec(key, "HmacSHA512");
         Mac mac = Mac.getInstance("HmacSHA512");
         mac.init(secretKey);
-        return BytesToHex.fromBytesToHex(mac.doFinal(data));
+        return BytesToHex.arr2HexStr(mac.doFinal(data) , true);
     }
 
     public static void main(String[] args) throws Exception {
@@ -80,7 +80,7 @@ public class MessageDigestUtil {
         System.out.println(data + " 的SHA值： " + MessageDigestUtil.encryptSHA(data.getBytes()));
 
         byte[] hmacKey = initHmacKey();
-        System.out.println("初始化Hmac密钥：" + BytesToHex.fromBytesToHex(hmacKey));
+        System.out.println("初始化Hmac密钥：" + BytesToHex.arr2HexStr(hmacKey , true));
         System.out.println(data + " 是的Hmac加密值为： " + MessageDigestUtil.encryptHmac(data.getBytes(), hmacKey));
     }
 

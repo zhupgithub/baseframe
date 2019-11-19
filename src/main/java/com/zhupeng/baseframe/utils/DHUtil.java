@@ -124,20 +124,20 @@ public class DHUtil {
         source_public_key = getPublicKey(sourceKey);
         source_private_key = getPrivateKey(sourceKey);
 
-        System.out.println("源公钥："+BytesToHex.fromBytesToHex(source_public_key));
-        System.out.println("源私钥："+BytesToHex.fromBytesToHex(source_private_key));
+        System.out.println("源公钥："+BytesToHex.arr2HexStr(source_public_key , true));
+        System.out.println("源私钥："+BytesToHex.arr2HexStr(source_private_key , true));
 
         Map<String, Object> targetKey = initTargetKey(getPublicKey(sourceKey));
         target_public_key = getPublicKey(targetKey);
         target_private_key = getPrivateKey(targetKey);
 
-        System.out.println("目标公钥："+BytesToHex.fromBytesToHex(target_public_key));
-        System.out.println("目标私钥："+BytesToHex.fromBytesToHex(target_private_key));
+        System.out.println("目标公钥："+BytesToHex.arr2HexStr(target_public_key , true));
+        System.out.println("目标私钥："+BytesToHex.arr2HexStr(target_private_key , true));
 
         source_local_key = generateLocalSecretKey(target_public_key, source_private_key);
         target_local_key = generateLocalSecretKey(source_public_key, target_private_key);
 
-        System.out.println("源本地密钥："+BytesToHex.fromBytesToHex(source_local_key));
-        System.out.println("目标本地密钥："+BytesToHex.fromBytesToHex(target_local_key));
+        System.out.println("源本地密钥："+BytesToHex.arr2HexStr(source_local_key , true));
+        System.out.println("目标本地密钥："+BytesToHex.arr2HexStr(target_local_key , true));
     }
 }
