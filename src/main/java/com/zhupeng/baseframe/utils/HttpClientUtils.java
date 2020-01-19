@@ -22,7 +22,7 @@ import java.util.Map;
 /**
  * HTTP客户端工具类
  *
- * @author Chen Jianliang
+ * @author zhupeng
  * @since 1.0
  * @since 2019/7/31
  */
