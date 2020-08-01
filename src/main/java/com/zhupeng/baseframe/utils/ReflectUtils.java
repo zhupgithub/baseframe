@@ -1,4 +1,4 @@
-package com.zhupeng.baseframe.aop;
+package com.zhupeng.baseframe.utils;
 
 import org.apache.ibatis.javassist.*;
 import org.apache.ibatis.javassist.bytecode.CodeAttribute;

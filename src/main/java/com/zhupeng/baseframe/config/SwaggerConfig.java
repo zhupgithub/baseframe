@@ -1,5 +1,6 @@
 package com.zhupeng.baseframe.config;
 
+import io.swagger.annotations.ApiOperation;
 import org.springframework.boot.autoconfigure.web.BasicErrorController;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -34,6 +35,9 @@ public class SwaggerConfig {
                 Class<?> declaringClass = input.declaringClass();
                 if (declaringClass == BasicErrorController.class)// 排除
                     return false;
+                if(input.isAnnotatedWith(ApiOperation.class)){
+                    return true;
+                }
                 //针对RestController注解的类和ResponseBody注解的方法才生成Swaager的API
                 if(declaringClass.isAnnotationPresent(RestController.class)) // 被注解的类
                     return true;
